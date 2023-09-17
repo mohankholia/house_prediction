@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Apply basic styling to the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Style the login container */
+        .login {
+            background-color: #ffffff;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the form header */
+        .login h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Style the form inputs */
+        .login form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* Style the form button */
+        .login form button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Style the result text */
+        .login h2 {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h1>House Prediction </h1>
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <input type="text" name="area" placeholder="area" required="required" /><br>
+            <input type="text" name="bedrooms" placeholder="bedrooms" required="required" /><br>
+            <input type="text" name="bathrooms" placeholder="bathrooms" required="required" /><br>
+            <input type="text" name="stories" placeholder="stories" required="required" /><br>
+            <input type="text" name="mainroad" placeholder="mainroad" required="required" /><br>
+            <input type="text" name="guestroom" placeholder="guestroom" required="required" /><br>
+            <input type="text" name="basement" placeholder="basement" required="required" /><br>
+            <input type="text" name="hotwaterheating" placeholder="hotwaterheating" required="required" /><br>
+            <input type="text" name="airconditioning" placeholder="airconditioning" required="required" /><br>
+            <input type="text" name="parking" placeholder="parking" required="required" /><br>
+            <input type="text" name="prefarea" placeholder="prefarea" required="required" /><br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <h2>
+            THE PRICE OF HOUSE IS {{result}}
+        </h2>
+    </div>
+</body>
+</html>
